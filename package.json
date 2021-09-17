@@ -1,9 +1,21 @@
 {
   "name": "solidmation",
   "version": "0.0.1",
-  "author": "Julian Gomez Sibecas",
-  "main": "index.js",
-  "license": "MIT",
+  "author": "Julian Gomez Sibecas <juliangsibecas@gmail.com>",
+  "license": "ISC",
+  "keywords": [
+    "solidmation",
+    "bgh"
+  ],
+  "homepage": "https://github.com/juliangsibecas/solidmation",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/juliangsibecas/solidmation.git"
+  },
+  "bugs": {
+    "url": "https://github.com/juliangsibecas/solidmation/issues"
+  },
+  "main": "dist/index.js",
   "scripts": {
     "start": "nodemon --exec ts-node ./src/index.ts",
     "build": "tsc -b"
