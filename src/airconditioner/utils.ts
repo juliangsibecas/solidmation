@@ -1,4 +1,4 @@
-import { EndpointParameter, EndpointValues } from "../home";
+import { EndpointParameter, EndpointValues } from '../home'
 
 import {
   AirConditionerEndpointParams,
@@ -7,20 +7,20 @@ import {
   AirConditionerModes,
   AirConditionerState,
   RawAirConditioner,
-} from "./types";
+} from './types'
 
 const getEndpointValue = (
-  data: EndpointValues["Values"],
+  data: EndpointValues['Values'],
   valueType: AirConditionerEndpointValueTypes
-) => Number((data.find((row) => row.ValueType === valueType) || {}).Value || 0);
+) => Number((data.find((row) => row.ValueType === valueType) || {}).Value || 0)
 
 const getEndpointParameter = (
   data: Array<EndpointParameter>,
   valueName: AirConditionerEndpointParams
-) => Number((data.find((row) => row.Name === valueName) || {}).Value) || 0;
+) => Number((data.find((row) => row.Name === valueName) || {}).Value) || 0
 
 const parseEndpointValues = (
-  data: EndpointValues["Values"]
+  data: EndpointValues['Values']
 ): AirConditionerState => {
   return {
     mode: getEndpointValue(
@@ -43,8 +43,8 @@ const parseEndpointValues = (
       data,
       AirConditionerEndpointValueTypes.SwingMode
     ),
-  };
-};
+  }
+}
 
 const parseEndpointParameters = (data: Array<EndpointParameter>) => {
   return {
@@ -52,8 +52,8 @@ const parseEndpointParameters = (data: Array<EndpointParameter>) => {
       min: getEndpointParameter(data, AirConditionerEndpointParams.SetpointMin),
       max: getEndpointParameter(data, AirConditionerEndpointParams.SetpointMax),
     },
-  };
-};
+  }
+}
 
 export const parseAirConditioner = ({
   endpoint,
@@ -66,5 +66,5 @@ export const parseAirConditioner = ({
     model: endpoint.DeviceModelDesc,
     state: parseEndpointValues(endpointValues.Values),
     params: parseEndpointParameters(endpoint.Parameters),
-  };
-};
+  }
+}

@@ -1,4 +1,4 @@
-import { Endpoint, EndpointValues } from "../home/";
+import { Endpoint, EndpointValues } from '../home/'
 
 export interface RawAirConditioner {
   endpoint: Endpoint;
@@ -25,8 +25,8 @@ export enum AirConditionerEndpointValueTypes {
 }
 
 export enum AirConditionerEndpointParams {
-  SetpointMin = "SetpointMinC",
-  SetpointMax = "SetpointMaxC",
+  SetpointMin = 'SetpointMinC',
+  SetpointMax = 'SetpointMaxC',
 }
 
 export enum AirConditionerFanModes {

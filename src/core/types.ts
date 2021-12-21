@@ -1,5 +1,5 @@
-import { ResponseStatus } from "../common/types";
-import { RawHome } from "../home";
+import { ResponseStatus } from '../common/types'
+import { RawHome } from '../home'
 
 export interface LoginResBody {
   d: string;

@@ -1,4 +1,4 @@
-import { ResponseStatus } from "../common/types";
+import { ResponseStatus } from '../common/types'
 
 export interface IHome {
   id: number;

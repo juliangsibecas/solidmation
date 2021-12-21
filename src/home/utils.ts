@@ -1,22 +1,22 @@
-import { GetDataPacketRes, IHome, RawHome } from "./types";
+import { GetDataPacketRes, IHome, RawHome } from './types'
 
 import {
   AirConditionerEndpointValueTypes,
   RawAirConditioner,
-} from "../airconditioner";
+} from '../airconditioner'
 
 export const parseHome = (raw: RawHome): IHome => ({
   id: raw.HomeID,
   name: raw.Description,
-});
+})
 
 export const filterAirConditioners = (
-  data: GetDataPacketRes["GetDataPacketResult"]
+  data: GetDataPacketRes['GetDataPacketResult']
 ): Array<RawAirConditioner> => {
-  const { EndpointValues, Endpoints } = data;
+  const { EndpointValues, Endpoints } = data
 
   if (!Endpoints) {
-    return [];
+    return []
   }
 
   return Endpoints.filter(
@@ -25,12 +25,12 @@ export const filterAirConditioners = (
   ).map((endpoint) => {
     const endpointValues = EndpointValues.find(
       (values) => values.EndpointID === endpoint.EndpointID
-    );
+    )
 
     if (!endpointValues) {
-      throw new Error();
+      throw new Error()
     }
 
-    return { endpoint, endpointValues };
-  });
-};
+    return { endpoint, endpointValues }
+  })
+}
